@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+
 export function ProductCard({ product, removeProduct, isOwner = false, width="is-one-quarter" }) {
   return (
     <div className={`column ${width}`}>
