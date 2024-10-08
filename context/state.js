@@ -27,8 +27,14 @@ export function AppWrapper({ children }) {
     }
   }, [token])
 
+  const logout = () => {
+    setToken(null)
+    setProfile(null)
+    localStorage.removeItem('token')
+  }
+
   return (
-    <AppContext.Provider value={{ profile, token, setToken, setProfile }}>
+    <AppContext.Provider value={{ profile, token, setToken, setProfile, logout }}>
       {children}
     </AppContext.Provider>
   );

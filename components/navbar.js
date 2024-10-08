@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import { useEffect, useState, useRef } from 'react'
 import { useAppContext } from '../context/state'
+import { useRouter } from 'next/router'
 
 export default function Navbar() {
   const { token, profile } = useAppContext()
   const hamburger = useRef()
   const navbar = useRef()
+  const router = useRouter()
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
@@ -19,6 +21,10 @@ export default function Navbar() {
     navbar.current.classList.toggle('is-active')
   }
 
+  const handleLogout = () => {
+    logout()
+    router.push('/login')
+  }
   const getLoggedInButtons = () => {
     return (
       <div className="navbar-item has-dropdown is-hoverable">
@@ -46,6 +52,7 @@ export default function Navbar() {
             () => {
               localStorage.removeItem('token')
               setIsLoggedIn(false)
+              router.push('/login')
             }}
           >
             Log out
