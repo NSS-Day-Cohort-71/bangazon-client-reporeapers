@@ -17,12 +17,13 @@ export function getOrders() {
 }
 
 export function completeCurrentOrder(orderId, paymentTypeId) {
+  console.log("Order ID:", orderId, "Payment Type ID:", paymentTypeId);
   return fetchWithResponse(`orders/${orderId}/complete`, {
     method: 'PUT',
     headers: {
       Authorization: `Token ${localStorage.getItem('token')}`,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({paymentTypeId})
+    body: JSON.stringify({ payment_type_id: paymentTypeId})
   })
 }
