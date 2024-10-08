@@ -21,10 +21,6 @@ export default function Navbar() {
     navbar.current.classList.toggle('is-active')
   }
 
-  const handleLogout = () => {
-    logout()
-    router.push('/login')
-  }
   const getLoggedInButtons = () => {
     return (
       <div className="navbar-item has-dropdown is-hoverable">
