@@ -27,8 +27,9 @@ export function AppWrapper({ children }) {
     }
   }, [token])
 
+
   return (
-    <AppContext.Provider value={{ profile, token, setToken, setProfile }}>
+    <AppContext.Provider value={{ profile, token, setToken, setProfile}}>
       {children}
     </AppContext.Provider>
   );
